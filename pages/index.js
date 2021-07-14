@@ -39,8 +39,8 @@ export default function Home() {
             <ul>
               {pessoasFavoritas.map((pessoa) => {
                 return (
-                  <li>
-                    <a href={`/user/${pessoa}`} key={pessoa}>
+                  <li  key={pessoa}>
+                    <a href={`/user/${pessoa}`}>
                       <img src={`https://github.com/${pessoa}.png`} alt={ {pessoa} } />
                       <span>{pessoa}</span>
                     </a>
