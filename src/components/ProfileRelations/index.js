@@ -9,6 +9,11 @@ export const ProfileRelationsBoxWrapper = styled(Box)`
     max-height: 220px;
     list-style: none;
   }
+  h2  {
+    span {
+      color: #308BC5;
+    }
+  }
   img {
     object-fit: cover;
     background-position: center center;

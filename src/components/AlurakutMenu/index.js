@@ -1,4 +1,5 @@
 import { useState} from 'react';
+import { BsSearch } from 'react-icons/bs';
 import styled from 'styled-components';
 
 import Link  from '../Link';
@@ -13,7 +14,6 @@ export default function AlurakutMenu({ githubUser }) {
     <AlurakutMenu.Wrapper isMenuOpen={isMenuOpen}>
       <div className="container">
         <AlurakutMenu.Logo src={`${BASE_URL}/logo.svg`} />
-
         <nav style={{ flex: 1 }}>
           {[{ name: 'Inicio', slug: '/'}, {name: 'Amigos', slug: '/amigos'}, {name: 'Comunidades', slug: '/comunidades'}].map((menuItem) => (
             <Link key={`key__${menuItem.name.toLocaleLowerCase()}`} href={`${menuItem.slug.toLocaleLowerCase()}`}>
@@ -26,8 +26,11 @@ export default function AlurakutMenu({ githubUser }) {
           <a href={`/logout`}>
             Sair
           </a>
-          <div>
+          <div className="search">
             <input placeholder="Pesquisar no Orkut" />
+            <button className="search" type="submit">
+              <BsSearch />
+            </button>
           </div>
         </nav>
 
@@ -131,27 +134,42 @@ AlurakutMenu.Wrapper = styled.header`
           bottom: 0;
         }
       }
+
+      .search {
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
+
+      }
+      button {
+        border-radius: 0 5px 5px 0 !important;
+        background-color: #2F4A71 !important;
+        color: #FFFFFF;
+        font-size: 1rem;
+        display: inline-block;
+        padding: 10px;
+        height: 100%;
+      }
     }
+
+
     input {
-      color: #ffffff;
-      background: #5579A1;
-      padding: 10px 42px;
+      color: #333333;
+      padding: 12px 10px;
       border: 0;
-      background-image: url(${`${BASE_URL}/icons/search.svg`});
-      background-position: 15px center;
-      background-repeat: no-repeat;
-      border-radius: 1000px;
+      border-radius: 5px 0 0 5px;
       font-size: 12px;
       ::placeholder {
-        color: #ffffff;
+        color: #333333;
         opacity: 1;
       }
     }
   }
+
 `;
 AlurakutMenu.Logo = styled.img`
   background-color: #ffffff;
   padding: 9px 14px;
-  border-radius: 1000px;
+  border-radius: 5px;
   height: 34px;
 `;
