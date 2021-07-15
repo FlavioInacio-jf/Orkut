@@ -1,44 +1,47 @@
 import styled from 'styled-components';
 import React from 'react';
 
+import { BsBookHalf, BsCamera, BsCameraVideoFill, BsFillStarFill, BsFillEnvelopeFill, BsFillHeartFill , BsFillSquareFill, BsPersonFill} from 'react-icons/bs';
+
 export default function OrkutNostalgicIconSet(props) {
   return (
     <>
-      <Separador />
-
       <OrkutNostalgicIconSet.List>
         {[
-          { name: 'Recados', slug: 'recados', icon: 'book' },
-          { name: 'Fotos', slug: 'fotos', icon: 'camera' },
-          { name: 'Videos', slug: 'videos', icon: 'video-camera' },
-          { name: 'Fãs', slug: 'fas', icon: 'star' },
-          { name: 'Mensagens', slug: 'mensagens', icon: 'email' },
+          { name: 'Recados', slug: 'recados', icon: <BsBookHalf /> },
+          { name: 'Fotos', slug: 'fotos', icon: <BsCamera /> },
+          { name: 'Videos', slug: 'videos', icon: <BsCameraVideoFill /> },
+          { name: 'Fãs', slug: 'fas', icon: <BsFillStarFill /> },
+          { name: 'Mensagens', slug: 'mensagens', icon: <BsFillEnvelopeFill /> },
         ].map(({ name, slug, icon }) => (
           <li key={`orkut__icon_set__${slug}`}>
             <span style={{ gridArea: 'title' }} className="OrkutNostalgicIconSet__title">
               {name}
             </span>
             <span className="OrkutNostalgicIconSet__number" style={{ gridArea: 'number' }}>
-              <img key={`orkut__icon_set__${slug}_img`} className="OrkutNostalgicIconSet__iconSample" src={`https://alurakut.vercel.app/icons/${icon}.svg`} />
-              {props[slug] ? props[slug] : 0}
+              {icon}
+              <span>
+                {props[slug] ? props[slug] : 0}
+              </span>
+
             </span>
           </li>
         ))}
         {[
-          { name: 'Confiável', slug: 'confiavel', icon: 'smile' },
-          { name: 'Legal', slug: 'legal', icon: 'cool' },
-          { name: 'Sexy', slug: 'sexy', icon: 'heart' },
-        ].map(({ name, slug, icon }) => {
-          const total = props[slug] ? props[slug] : 2;
+          { name: 'Confiável', slug: 'confiavel', icon: <BsPersonFill />, color: 'color-red' },
+          { name: 'Legal', slug: 'legal', icon: <BsFillSquareFill />, color:  'color-blue'},
+          { name: 'Sexy', slug: 'sexy', icon: <BsFillHeartFill />, color: 'color-yellow' },
+        ].map(({ name, slug, icon, color }) => {
+          const total = props[slug] ? props[slug] : 1;
           return (
             <li key={`orkut__icon_set__${slug}`}>
               <span className="OrkutNostalgicIconSet__title">
                 {name}
               </span>
-              <span className="OrkutNostalgicIconSet__iconComplex" className="OrkutNostalgicIconSet__number" style={{ gridArea: 'number' }}>
+              <span className="OrkutNostalgicIconSet__iconComplex" className="OrkutNostalgicIconSet__number" className={color} className="grid" style={{ gridArea: 'number' }}>
                 {[0, 1, 2].map((_, index) => {
                   const isHeartActive = index <= (total - 1);
-                  return <img key={`orkut__icon_set__${slug}_img_${index}`} src={`https://alurakut.vercel.app/icons/${icon}.svg`} style={{ marginRight: '2px', opacity: isHeartActive ? 1 : '0.5' }} />
+                  return icon
                 })}
               </span>
             </li>
@@ -46,7 +49,6 @@ export default function OrkutNostalgicIconSet(props) {
         })}
 
       </OrkutNostalgicIconSet.List>
-      <Separador />
     </>
   )
 }
@@ -78,16 +80,36 @@ OrkutNostalgicIconSet.List = styled.ul`
       display: flex;
       align-items: center;
       justify-content: flex-start;
+      gap: 0.25rem;
+
+      font-size: 1rem;
+      margin-top: 0.1875rem;
+
       .OrkutNostalgicIconSet__iconSample {
         margin-right: 7px;
       }
+      span {
+        color: #2E7BB4;
+        font-size: 0.875rem;
+        font-style: italic;
+      }
+    }
+
+    .grid {
+      display: flex;
+      gap: 0.2368rem;
+    }
+
+    .color-red {
+      color: #FE929F;
+    }
+
+    .color-blue {
+      color: #5AAAE7;
+    }
+    .color-yellow {
+      color: #FFD54F;
     }
   }
 `;
 
-
-const Separador = styled.div`
-  width: 100%;
-  height: 1px;
-  background:linear-gradient( to right, #C5C6CA, #FFFFFF);
-`;

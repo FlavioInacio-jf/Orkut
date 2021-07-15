@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const BASE_URL = 'http://alurakut.vercel.app/';
+import { BsFillPersonFill, BsBookHalf, BsCamera, BsFillBrightnessHighFill, BsPlus, BsBoxArrowLeft } from 'react-icons/bs';
 
 export default function AlurakutMenuProfileSidebar({ githubUser }) {
   return (
@@ -29,49 +29,52 @@ export function AlurakutProfileSidebarMenuDefault() {
     <AlurakutProfileSidebarMenuDefault.Wrapper>
       <nav>
         <a href="/">
-          <img src={`${BASE_URL}/icons/user.svg`} />
+          <BsFillPersonFill className="icon" />
             Perfil
-          </a>
+        </a>
         <a href="/">
-          <img src={`${BASE_URL}/icons/book.svg`} />
+          <BsBookHalf className="icon"/>
             Recados
-          </a>
+        </a>
         <a href="/">
-          <img src={`${BASE_URL}/icons/camera.svg`} />
+          <BsCamera className="icon" />
             Fotos
-          </a>
+        </a>
         <a href="/">
-          <img src={`${BASE_URL}/icons/sun.svg`} />
+          <BsFillBrightnessHighFill className="icon" />
             Depoimentos
-          </a>
+        </a>
       </nav>
+
       <hr />
       <nav>
         <a href="/">
-          <img src={`${BASE_URL}/icons/plus.svg`} />
-            GitHub Trends
-          </a>
+          <BsPlus className="icon" />
+          GitHub Trends
+        </a>
         <a href="/logout">
-          <img src={`${BASE_URL}//icons/logout.svg`} />
-            Sair
-          </a>
+          <BsBoxArrowLeft className="icon" />
+          Sair
+        </a>
       </nav>
     </AlurakutProfileSidebarMenuDefault.Wrapper>
   )
 }
 AlurakutProfileSidebarMenuDefault.Wrapper = styled.div`
   a {
-    font-size: 12px;
+    font-size: 0.75rem;
     color: #2E7BB4;
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
+
     display: flex;
     align-items: center;
+    gap: 0.5rem;
     justify-content: flex-start;
+
     text-decoration: none;
-    img {
-      width: 16px;
-      height: 16px;
-      margin-right: 5px;
+
+    .icon {
+      font-size: 1rem;
     }
   }
 `;

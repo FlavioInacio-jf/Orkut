@@ -34,19 +34,23 @@ function ProfileRelationsBox(props) {
       </h2>
 
       <ul>
-        {props.items.map((itemAtual) => {
+        {props.items.map((itemAtual, index) => {
           return (
-            <li  key={ itemAtual.id }>
-              <a href={itemAtual.html_url}>
-                <img
-                  src={ itemAtual.avatar_url }
-                  alt={ itemAtual.login }
-                />
-                <span>{itemAtual.login}</span>
-              </a>
-            </li>
+             index <= 5 && (
+              <li  key={ itemAtual.id }>
+                <a href={itemAtual.html_url}>
+                  <img
+                    src={ itemAtual.avatar_url }
+                    alt={ itemAtual.login }
+                  />
+                  <span>{itemAtual.login}</span>
+                </a>
+              </li>
+            )
           )
         })}
+
+        <a>OII</a>
       </ul>
     </ProfileRelationsBoxWrapper>
   );
