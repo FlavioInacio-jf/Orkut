@@ -1,18 +1,19 @@
 import styled from 'styled-components';
 import React from 'react';
 
-import { BsBookHalf, BsCamera, BsCameraVideoFill, BsFillStarFill, BsFillEnvelopeFill, BsFillHeartFill , BsFillSquareFill, BsPersonFill} from 'react-icons/bs';
+import { BsPeopleFill, BsFillHeartFill, BsFillInboxesFill, BsBookHalf, BsFillBriefcaseFill, BsGeoAlt } from 'react-icons/bs';
 
 export default function OrkutNostalgicIconSet(props) {
   return (
     <>
       <OrkutNostalgicIconSet.List>
         {[
-          { name: 'Recados', slug: 'recados', icon: <BsBookHalf /> },
-          { name: 'Fotos', slug: 'fotos', icon: <BsCamera /> },
-          { name: 'Videos', slug: 'videos', icon: <BsCameraVideoFill /> },
-          { name: 'Fãs', slug: 'fas', icon: <BsFillStarFill /> },
-          { name: 'Mensagens', slug: 'mensagens', icon: <BsFillEnvelopeFill /> },
+          { name: 'Followers', slug: 'followers', icon: <BsPeopleFill /> },
+          { name: 'Following', slug: 'following', icon: <BsFillHeartFill /> },
+          { name: 'Repositories', slug: 'repositories', icon: <BsFillInboxesFill /> },
+          { name: 'Blog', slug: 'blog', icon: <BsBookHalf /> },
+          { name: 'Company', slug: 'company', icon: <BsFillBriefcaseFill /> },
+          { name: 'Location', slug: 'location', icon: <BsGeoAlt /> },
         ].map(({ name, slug, icon }) => (
           <li key={`orkut__icon_set__${slug}`}>
             <span style={{ gridArea: 'title' }} className="OrkutNostalgicIconSet__title">
@@ -27,26 +28,6 @@ export default function OrkutNostalgicIconSet(props) {
             </span>
           </li>
         ))}
-        {[
-          { name: 'Confiável', slug: 'confiavel', icon: <BsPersonFill />, color: 'color-red' },
-          { name: 'Legal', slug: 'legal', icon: <BsFillSquareFill />, color:  'color-blue'},
-          { name: 'Sexy', slug: 'sexy', icon: <BsFillHeartFill />, color: 'color-yellow' },
-        ].map(({ name, slug, icon, color }) => {
-          const total = props[slug] ? props[slug] : 1;
-          return (
-            <li key={`orkut__icon_set__${slug}`}>
-              <span className="OrkutNostalgicIconSet__title">
-                {name}
-              </span>
-              <span className="OrkutNostalgicIconSet__iconComplex" className="OrkutNostalgicIconSet__number" className={color} className="grid" style={{ gridArea: 'number' }}>
-                {[0, 1, 2].map((_, index) => {
-                  const isHeartActive = index <= (total - 1);
-                  return icon
-                })}
-              </span>
-            </li>
-          );
-        })}
 
       </OrkutNostalgicIconSet.List>
     </>
@@ -61,7 +42,7 @@ OrkutNostalgicIconSet.List = styled.ul`
   flex-wrap: wrap;
 
   li {
-    font-size: 12px;
+    font-size: 0.75rem;
     color: #5A5A5A;
     display: grid;
     grid-template-areas:
@@ -69,7 +50,7 @@ OrkutNostalgicIconSet.List = styled.ul`
       "number number";
 
     &:not(:last-child) {
-      margin-right: 5px;
+      margin-right: 0.3125rem;
     }
     .OrkutNostalgicIconSet__title {
       display: block;
@@ -86,7 +67,7 @@ OrkutNostalgicIconSet.List = styled.ul`
       margin-top: 0.1875rem;
 
       .OrkutNostalgicIconSet__iconSample {
-        margin-right: 7px;
+        margin-right: 0.4375rem;
       }
       span {
         color: #2E7BB4;

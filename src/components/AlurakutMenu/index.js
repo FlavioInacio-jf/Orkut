@@ -2,8 +2,11 @@ import { useState} from 'react';
 import { BsSearch } from 'react-icons/bs';
 import styled from 'styled-components';
 
+import Image from 'next/image'
 import Link  from '../Link';
+
 import AlurakutMenuProfileSidebar  from '../AlurakutMenuProfileSidebar';
+import brandImg from '../../assets/imagens/logo.svg';
 
 const BASE_URL = 'http://alurakut.vercel.app/';
 const v = '1';
@@ -13,7 +16,8 @@ export default function AlurakutMenu({ githubUser }) {
   return (
     <AlurakutMenu.Wrapper isMenuOpen={isMenuOpen}>
       <div className="container">
-        <AlurakutMenu.Logo src={`${BASE_URL}/logo.svg`} />
+        <Image src={ brandImg } className="logo" />
+
         <nav style={{ flex: 1 }}>
           {[{ name: 'Inicio', slug: '/'}, {name: 'Amigos', slug: '/amigos'}, {name: 'Comunidades', slug: '/comunidades'}].map((menuItem) => (
             <Link key={`key__${menuItem.name.toLocaleLowerCase()}`} href={`${menuItem.slug.toLocaleLowerCase()}`}>
@@ -52,15 +56,15 @@ AlurakutMenu.Wrapper = styled.header`
     background: white;
     position: fixed;
     z-index: 100;
-    padding: 46px;
+    padding: 2.875rem;
     bottom: 0;
     left: 0;
     right: 0;
-    top: 48px;
+    top: 3rem;
     transition: .3s;
     pointer-events: ${({ isMenuOpen }) => isMenuOpen ? 'all' : 'none'};
     opacity: ${({ isMenuOpen }) => isMenuOpen ? '1' : '0'};
-    transform: ${({ isMenuOpen }) => isMenuOpen ? 'translateY(0)' : 'translateY(calc(-100% - 48px))'};
+    transform: ${({ isMenuOpen }) => isMenuOpen ? 'translateY(0)' : 'translateY(calc(-100% - 3rem))'};
     @media(min-width: 860px) {
       display: none;
     }
@@ -69,10 +73,10 @@ AlurakutMenu.Wrapper = styled.header`
       margin: auto;
     }
     a {
-      font-size: 18px;
+      font-size: 1.125rem;
     }
     .boxLink {
-      font-size: 18px;
+      font-size: 1.125rem;
       color: #2E7BB4;
       -webkit-text-decoration: none;
       text-decoration: none;
@@ -80,19 +84,27 @@ AlurakutMenu.Wrapper = styled.header`
     }
 
     hr {
-      margin-top: 12px;
-      margin-bottom: 8px;
+      margin-top: 0.75rem;
+      margin-bottom: 0.5rem;
       border-color: transparent;
       border-bottom-color: #ECF2FA;
     }
   }
 
+  .logo {
+    background-color: #ffffff;
+    padding: 0.5625rem 0.875rem;
+    border-radius: 0.625rem;
+    height: 2.125rem;
+  }
+
   .container {
     background-color: #308BC5;
-    padding: 7px 16px;
+    padding: 0.4375rem 1rem;
     max-width: 1110px;
     margin: auto;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     position: relative;
     z-index: 101;
@@ -116,9 +128,9 @@ AlurakutMenu.Wrapper = styled.header`
         display: flex;
       }
       a {
-        font-size: 12px;
+        font-size: 0.75rem;
         color: white;
-        padding: 10px 16px;
+        padding: 0.625rem 1rem;
         position: relative;
         text-decoration: none;
         &:after {
@@ -126,8 +138,8 @@ AlurakutMenu.Wrapper = styled.header`
           background-color: #5292C1;
           display: block;
           position: absolute;
-          width: 1px;
-          height: 12px;
+          width: 0.0625rem;
+          height: 0.75rem;
           margin: auto;
           left: 0;
           top: 0;
@@ -138,16 +150,16 @@ AlurakutMenu.Wrapper = styled.header`
       .search {
         display: flex;
         align-items: center;
-        border-radius: 5px;
+        border-radius: 0.3125rem;
 
       }
       button {
-        border-radius: 0 5px 5px 0 !important;
+        border-radius: 0 0.3125rem 0.3125rem 0 !important;
         background-color: #2F4A71 !important;
         color: #FFFFFF;
         font-size: 1rem;
         display: inline-block;
-        padding: 10px;
+        padding: 0.625rem;
         height: 100%;
       }
     }
@@ -155,10 +167,10 @@ AlurakutMenu.Wrapper = styled.header`
 
     input {
       color: #333333;
-      padding: 12px 10px;
+      padding: 0.75rem 0.625rem;
       border: 0;
-      border-radius: 5px 0 0 5px;
-      font-size: 12px;
+      border-radius: 0.3125rem 0 0 0.3125rem;
+      font-size: 0.75rem;
       ::placeholder {
         color: #333333;
         opacity: 1;
@@ -166,10 +178,4 @@ AlurakutMenu.Wrapper = styled.header`
     }
   }
 
-`;
-AlurakutMenu.Logo = styled.img`
-  background-color: #ffffff;
-  padding: 9px 14px;
-  border-radius: 5px;
-  height: 34px;
 `;

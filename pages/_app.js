@@ -10,8 +10,7 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     background-color: #D9E6F6;
-    font-family: sans-serif;
-    font-size: 1rem;
+    font: 400 1rem "Rubik", sans-serif;
   }
 
   img {

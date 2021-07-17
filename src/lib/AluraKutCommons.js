@@ -19,16 +19,16 @@ const AlurakutLoginScreen = css`
     --textSecondaryColor: #FFFFFF;
     --textTertiaryColor: #5A5A5A;
     --textQuarternaryColor: #C5C6CA;
-    --commonRadius: 8px;
+    --commonRadius: 0.5rem;
   }
 
 
   .loginScreen {
-    padding: 16px;
+    padding: 1rem;
     max-width: 1110px;
     display: grid;
-    --gap: 12px;
-    --gutter: 16px;
+    --gap: 0.75rem;
+    --gutter: 1rem;
     grid-gap: var(--gap);
     grid-template-areas:
       "logoArea"
@@ -57,18 +57,18 @@ const AlurakutLoginScreen = css`
         min-height: 368px;
       }
       p {
-        font-size: 12px;
+        font-size: 0.75rem;
         line-height: 1.2;
         &:not(:last-child) {
-          margin-bottom: 12px;
+          margin-bottom: 0.75rem;
         }
         strong {
           color: var(--colorQuarternary);
         }
       }
       img {
-        max-height: 45px;
-        margin-bottom: 36px;
+        max-height: 2.8125rem;
+        margin-bottom: 2.25rem;
       }
     }
     .formArea {
@@ -83,8 +83,8 @@ const AlurakutLoginScreen = css`
         justify-content: center;
         text-align: center;
         padding: var(--gutter);
-        padding-left: 50px;
-        padding-right: 50px;
+        padding-left: 3.125rem;
+        padding-right: 3.125rem;
         background-color: var(--backgroundSecondary);
         border-radius: var(--commonRadius);
         flex: 1;
@@ -98,7 +98,7 @@ const AlurakutLoginScreen = css`
           }
         }
         p {
-          font-size: 14px;
+          font-size: 0.875rem;
         }
         a {
           text-decoration: none;
@@ -108,17 +108,17 @@ const AlurakutLoginScreen = css`
           width: 100%;
           display: block;
           border: 1px solid var(--textQuarternaryColor);
-          padding: 12px;
+          padding: 0.75rem;
           background-color: var(--backgroundTertiary);
           border-radius: var(--commonRadius);
-          margin-top: 24px;
-          margin-bottom: 16px;
+          margin-top: 1.5rem;
+          margin-bottom: 1rem;
         }
         button {
           width: 100%;
           display: block;
           border: 0;
-          padding: 12px;
+          padding: 0.75rem;
           border-radius: var(--commonRadius);
           background-color: var(--colorPrimary);
           color: var(--textSecondaryColor);
@@ -129,9 +129,9 @@ const AlurakutLoginScreen = css`
       grid-area: footerArea;
       background-color: var(--backgroundQuarternary);
       border-radius: var(--commonRadius);
-      padding: 8px;
+      padding: 0.5rem;
       p {
-        font-size: 12px;
+        font-size: 0.75rem;
         text-align: center;
         a {
           text-decoration: none;
@@ -147,14 +147,14 @@ const AlurakutLoginScreen = css`
 // ================================================================================================================
 export const AlurakutStyles = css`
   *::-webkit-scrollbar {
-    width: 8px;
+    width: 0.5rem;
   }
   *::-webkit-scrollbar-track {
     background: #f1f1f1;
   }
   *::-webkit-scrollbar-thumb {
     background: #888;
-    border-radius: 10px;
+    border-radius: 0.625rem;
   }
   *::-webkit-scrollbar-thumb:hover {
     background: #555;
@@ -182,9 +182,26 @@ export const AlurakutStyles = css`
     }
     &:hover,
     &:focus {
-      box-shadow: 0px 0px 5px #33333357;
+      box-shadow: 0px 0px 0.3125rem #33333357;
     }
   }
 
   ${AlurakutLoginScreen}
+
+  @media (max-width: 1000px) {
+    html {
+      font-size: 93.75%;
+    }
+  }
+
+  @media (max-width: 720px) {
+    html {
+      font-size: 87.5%;
+    }
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+  }
 `;
