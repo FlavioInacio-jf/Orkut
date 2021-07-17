@@ -3,18 +3,18 @@ import React from 'react';
 
 import { BsPeopleFill, BsFillHeartFill, BsFillInboxesFill, BsBookHalf, BsFillBriefcaseFill, BsGeoAlt } from 'react-icons/bs';
 
-export default function OrkutNostalgicIconSet(props) {
+export default function OrkutNostalgicIconSet({user}) {
   return (
     <>
       <OrkutNostalgicIconSet.List>
         {[
-          { name: 'Followers', slug: 'followers', icon: <BsPeopleFill /> },
-          { name: 'Following', slug: 'following', icon: <BsFillHeartFill /> },
-          { name: 'Repositories', slug: 'repositories', icon: <BsFillInboxesFill /> },
-          { name: 'Blog', slug: 'blog', icon: <BsBookHalf /> },
-          { name: 'Company', slug: 'company', icon: <BsFillBriefcaseFill /> },
-          { name: 'Location', slug: 'location', icon: <BsGeoAlt /> },
-        ].map(({ name, slug, icon }) => (
+          { name: 'Followers', slug: 'followers', icon: <BsPeopleFill />, user: user.followers },
+          { name: 'Following', slug: 'following', icon: <BsFillHeartFill /> , user: user.following},
+          { name: 'Repositories', slug: 'repositories', icon: <BsFillInboxesFill />, user: user.public_repos },
+          { name: 'Blog', slug: 'blog', icon: <BsBookHalf />, user: user.blog },
+          { name: 'Company', slug: 'company', icon: <BsFillBriefcaseFill />, user: user.company },
+          { name: 'Location', slug: 'location', icon: <BsGeoAlt />, user: user.location },
+        ].map(({ name, slug, icon, user }) => (
           <li key={`orkut__icon_set__${slug}`}>
             <span style={{ gridArea: 'title' }} className="OrkutNostalgicIconSet__title">
               {name}
@@ -22,7 +22,7 @@ export default function OrkutNostalgicIconSet(props) {
             <span className="OrkutNostalgicIconSet__number" style={{ gridArea: 'number' }}>
               {icon}
               <span>
-                {props[slug] ? props[slug] : 0}
+                {user ? user : 'Sem'}
               </span>
 
             </span>
