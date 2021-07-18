@@ -96,6 +96,36 @@ const AlurakutLoginScreen = css`
             min-height: 282px;
           }
         }
+        div {
+          width: 100%;
+          display: flex;
+          align-items: center;
+
+          background-color: var(--backgroundTertiary);
+          border-radius: var(--commonRadius);
+          border: 1px solid var(--textQuarternaryColor);
+
+          margin-top: 1.5rem;
+          margin-bottom: 1rem;
+
+          .icon-input {
+            display: flex;
+            align-items: center;
+
+            font-size: 1rem;
+            text-align: center;
+            line-height: 1.5;
+            white-space: nowrap;
+            color: var(--colorQuarternary);
+
+            border-radius: var(--commonRadius) 0 0 var(--commonRadius);
+            background-color: var(backgroundTertiary);
+
+            height: 100%;
+            padding: 0.375rem .75rem;
+            border-right: 1px solid var(--textQuarternaryColor);
+          }
+        }
         p {
           font-size: 0.875rem;
         }
@@ -106,21 +136,27 @@ const AlurakutLoginScreen = css`
         input {
           width: 100%;
           display: block;
-          border: 1px solid var(--textQuarternaryColor);
           padding: 0.75rem;
+          border: none;
+          border-radius: 0 var(--commonRadius) var(--commonRadius) 0;
           background-color: var(--backgroundTertiary);
-          border-radius: var(--commonRadius);
-          margin-top: 1.5rem;
-          margin-bottom: 1rem;
         }
         button {
           width: 100%;
-          display: block;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+
+          font-family: Verdana, sans-serif;
+          font-size: 0.875rem;
+          font-weight: 700;
+          color: var(--textSecondaryColor);
+
           border: 0;
           padding: 0.75rem;
           border-radius: var(--commonRadius);
           background-color: var(--colorPrimary);
-          color: var(--textSecondaryColor);
         }
       }
     }
@@ -170,6 +206,9 @@ const AlurakutStyles = css`
       cursor: not-allowed;
       opacity: .5;
     }
+    display: flex;
+    align-items: center;
+    gap: 0.5rem
   }
   input {
     transition: .3s;
@@ -183,6 +222,7 @@ const AlurakutStyles = css`
       box-shadow: 0px 0px 0.3125rem #33333357;
     }
   }
+
 
   ${AlurakutLoginScreen}
 

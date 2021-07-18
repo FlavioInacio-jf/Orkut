@@ -1,13 +1,15 @@
 import React from 'react';
 import Image from 'next/image'
-import LogoImg from '../src/assets/imagens/logo.svg';
+
+import { BsBoxArrowInRight, BsAt } from 'react-icons/bs';
+import brandImg from '../public/logo.svg';
 
 export default function LoginScreen() {
   return (
     <main style={{ display: 'flex', flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <div className="loginScreen">
         <section className="logoArea">
-          <Image src={LogoImg} />
+          <Image src={brandImg} layout={'intrinsic'}/>
 
           <p><strong>Conecte-se</strong> aos seus amigos e familiares usando recados e mensagens instantâneas</p>
           <p><strong>Conheça</strong> novas pessoas através de amigos de seus amigos e comunidades</p>
@@ -18,11 +20,18 @@ export default function LoginScreen() {
           <form className="box">
             <p>
               Acesse agora mesmo com seu usuário do <strong>GitHub</strong>!
-          </p>
-            <input placeholder="Usuário"/>
+            </p>
+            <div>
+              <span  className="icon-input">
+                <BsAt />
+              </span>
+              <input placeholder="Usuário"/>
+            </div>
+
             <button type="submit">
+              <BsBoxArrowInRight />
               Login
-          </button>
+            </button>
           </form>
 
           <footer className="box">
@@ -31,7 +40,7 @@ export default function LoginScreen() {
               <a href="/login">
                 <strong>
                   ENTRAR JÁ
-              </strong>
+                </strong>
               </a>
             </p>
           </footer>

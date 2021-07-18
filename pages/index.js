@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
+import { BsPencilSquare } from 'react-icons/bs';
 import Head from 'next/head';
+
 
 import MainGrid from '../src/components/MainGrid'
 import Box from '../src/components/Box';
@@ -77,7 +79,7 @@ export default function Home() {
       <Head >
         <title>hubork | Seu Github de uma forma diferente</title>
       </Head>
-      
+
       <AlurakutMenu githubUser={user.login}/>
       <MainGrid>
         <div  className="profileArea" style= {{ gridArea: 'profileArea'}}>
@@ -87,6 +89,8 @@ export default function Home() {
         <div className="welcomeArea" style={{ gridArea: 'welcomeArea'}}>
           <Box >
             <h1 className="title">Bem-vindo(a), {user.name}</h1>
+            <p className="frase-dia"><span>Sorte de hoje: </span>O melhor profeta do futuro é o passado</p>
+
             <OrkutNostalgicIconSet user={user} />
           </Box>
           <Box>
@@ -109,6 +113,7 @@ export default function Home() {
                 />
               </div>
               <button type="submit">
+                <BsPencilSquare />
                 Criar comunidade
               </button>
             </form>

@@ -6,7 +6,7 @@ import Image from 'next/image'
 import Link  from '../Link';
 
 import AlurakutMenuProfileSidebar  from '../AlurakutMenuProfileSidebar';
-import brandImg from '../../assets/imagens/logo.svg';
+import brandImg from '../../../public/logo.svg';
 
 const BASE_URL = 'http://alurakut.vercel.app/';
 const v = '1';
@@ -16,7 +16,7 @@ export default function AlurakutMenu({ githubUser }) {
   return (
     <AlurakutMenu.Wrapper isMenuOpen={isMenuOpen}>
       <div className="container">
-        <Image src={ brandImg } className="logo" />
+        <Image src={ brandImg } className="logo" layout="intrinsic" />
 
         <nav style={{ flex: 1 }}>
           {[{ name: 'Inicio', slug: '/'}, {name: 'Amigos', slug: '/amigos'}, {name: 'Comunidades', slug: '/comunidades'}].map((menuItem) => (

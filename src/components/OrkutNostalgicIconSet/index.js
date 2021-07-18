@@ -34,8 +34,8 @@ export default function OrkutNostalgicIconSet({user}) {
   )
 }
 OrkutNostalgicIconSet.List = styled.ul`
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   list-style: none;
   display: flex;
   justify-content: space-between;

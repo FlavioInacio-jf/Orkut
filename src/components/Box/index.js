@@ -23,10 +23,19 @@ const Box = styled.div`
     text-align: left;
     line-height: 1rem;
   }
+  .frase-dia {
+    font-family: Verdana, sans-serif;
+    font-size: 0.75rem;
+    color: #999999;
+
+    span {
+      font-weight: bold;
+    }
+  }
   .title {
     font-size: 1.75rem;
     font-weight: 400;
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.5rem;
   }
   .subTitle {
     font-size: 1.125rem;
