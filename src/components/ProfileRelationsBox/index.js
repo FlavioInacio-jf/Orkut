@@ -1,4 +1,5 @@
 import { ProfileRelationsBoxWrapper } from '../ProfileRelations';
+import Link from '../Link';
 
 export default function ProfileRelationsBox(props) {
   return (
@@ -8,20 +9,23 @@ export default function ProfileRelationsBox(props) {
       </h2>
 
       <ul>
-        {props.items.map((itemAtual) => {
+        {props.items.map((itemAtual, index) => {
           return (
-            <li  key={ itemAtual.id }>
-              <a href={itemAtual.html_url}>
-                <img
-                  src={ itemAtual.avatar_url }
-                  alt={ itemAtual.login }
-                />
-                <span>{itemAtual.login}</span>
-              </a>
-            </li>
+             index <= 5 && (
+              <li  key={ itemAtual.id }>
+                <a href={`/communities/${itemAtual.id}`}>
+                  <img src={ itemAtual.imageUrl } alt={ itemAtual.title }/>
+                  <span>{itemAtual.title}</span>
+                </a>
+              </li>
+            )
           )
         })}
       </ul>
+      <hr />
+      {props.items.length >=5 && (
+        <Link href="/" className="boxLink">Ver todos</Link>
+      )}
     </ProfileRelationsBoxWrapper>
   );
 }

@@ -1,37 +1,6 @@
-import { createGlobalStyle, ThemeProvider } from 'styled-components'
-import { AlurakutStyles } from '../src/lib/AluraKutCommons';
+import { ThemeProvider } from 'styled-components'
+import { GlobalStyle, theme } from '../src/styles/global';
 
-const GlobalStyle = createGlobalStyle`
-  /* Reset CSS */
-  *, *:after, *:before {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body {
-    background-color: #D9E6F6;
-    font: 400 1rem "Rubik", sans-serif;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-  }
-  #__next {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
-
-  ${ AlurakutStyles }
-`
-
-const theme = {
-  colors: {
-    primary: '#0070f3',
-  },
-}
 
 export default function App({ Component, pageProps }) {
   return (

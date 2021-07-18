@@ -2,54 +2,16 @@ import { useState, useEffect } from 'react';
 
 import MainGrid from '../src/components/MainGrid'
 import Box from '../src/components/Box';
-
 import AlurakutMenu from '../src/components/AlurakutMenu';
 import OrkutNostalgicIconSet from '../src/components/OrkutNostalgicIconSet';
-import { ProfileRelationsBoxWrapper } from '../src/components/ProfileRelations';
+import ProfileRelationsBox from '../src/components/ProfileRelationsBox';
 import ProfileSidebar from '../src/components/ProfileSidebar';
-import Link from '../src/components/Link';
-
-
-function ProfileRelationsBox(props) {
-  return (
-    <ProfileRelationsBoxWrapper>
-      <h2 className="smallTitle">
-        {props.title} <span>({props.items.length})</span>
-      </h2>
-
-      <ul>
-        {props.items.map((itemAtual, index) => {
-          return (
-             index <= 5 && (
-              <li  key={ itemAtual.id }>
-                <a href={itemAtual.html_url}>
-                  <img
-                    src={ itemAtual.avatar_url }
-                    alt={ itemAtual.login }
-                  />
-                  <span>{itemAtual.login}</span>
-                </a>
-              </li>
-            )
-          )
-        })}
-      </ul>
-      <hr />
-      {props.items.length >=5 && (
-        <Link href="/" className="boxLink">Ver todos</Link>
-      )}
-    </ProfileRelationsBoxWrapper>
-  );
-}
 
 
 export default function Home() {
 
-  const [ comunidades, setComunidades ] = useState([{
-    id: '0102578555555555555555555555555',
-    title: 'Eu odeio acordar cedo',
-    image: 'https://alurakut.vercel.app/capa-comunidade-01.jpg'
-  }]);
+  const [ comunidades, setComunidades ] = useState([]);
+  const [user, setUser] = useState([]);
 
   function handleCriarComunidade(event) {
     event.preventDefault();
@@ -57,23 +19,56 @@ export default function Home() {
     const dadosForm = new FormData(event.target)
 
     const comunidade = {
-      id: new Date().toISOString(),
       title: dadosForm.get('title'),
-      image: dadosForm.get('image'),
+      imageUrl: dadosForm.get('image'),
+      creatorSlug: user.login,
     }
-    setComunidades([...comunidades, comunidade])
+
+    fetch('/api/comunidades', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(comunidade)
+    })
+    .then(async (response) => {
+      const dados = await response.json();
+
+      const comunidade = dados.registroCriado;
+      setComunidades([...comunidades, comunidade])
+    })
   }
 
-  const [user, setUser] = useState([]);
-
   useEffect(() =>{
+    //GET
     fetch('https://api.github.com/users/FlavioInacio-jf')
-    .then((r) => {
-      return r.json();
+    .then( async (response) => {
+      const dados = await response.json();
+      setUser(dados);
     })
-    .then((response) => {
-      setUser(response);
-    });
+
+    //API GraphQL
+    fetch('https://graphql.datocms.com/', {
+      method: 'POST',
+      headers: {
+        'Authorization' : 'd23bb93153110d632608812f3eba25',
+        'Content-Type' : 'application/json',
+        'Accept' : 'application/json',
+      },
+      body: JSON.stringify({"query": `query {
+        allComunidades {
+          title
+          id
+          imageUrl
+          creatorSlug
+        }
+      }` }),
+    })
+    .then( async (response) => {
+      const dados = await response.json()
+      const comunidadesVindasDoDato = dados.data.allComunidades;
+      setComunidades(comunidadesVindasDoDato)
+    })
   }, [])
 
   return (
@@ -119,28 +114,7 @@ export default function Home() {
 
           {/*<ProfileRelationsBox items={pessoasFavoritas} title="Seguidores" />*/}
 
-          <ProfileRelationsBoxWrapper>
-            <h2 className="smallTitle">
-              Comunidades <span>({comunidades.length})</span>
-            </h2>
-
-            <ul>
-              {comunidades.map((itemAtual) => {
-                return (
-                  <li  key={ itemAtual.id }>
-                    <a href={`/user/${itemAtual.title}`}>
-                      <img
-                        src={ itemAtual.image }
-                        alt={ itemAtual.title }
-                      />
-                      <span>{itemAtual.title}</span>
-                    </a>
-                  </li>
-                )
-              })}
-            </ul>
-          </ProfileRelationsBoxWrapper>
-
+          <ProfileRelationsBox title="Comunidades" items={comunidades} />
 
           {/*<ProfileRelationsBox items={pessoasFavoritas} title="Pessoas da comunidade" />*/}
         </div>
