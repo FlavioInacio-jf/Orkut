@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image'
 import LogoImg from '../src/assets/imagens/logo.svg';
 
 export default function LoginScreen() {
@@ -6,7 +7,7 @@ export default function LoginScreen() {
     <main style={{ display: 'flex', flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <div className="loginScreen">
         <section className="logoArea">
-          <img src={LogoImg} />
+          <Image src={LogoImg} />
 
           <p><strong>Conecte-se</strong> aos seus amigos e familiares usando recados e mensagens instantâneas</p>
           <p><strong>Conheça</strong> novas pessoas através de amigos de seus amigos e comunidades</p>
@@ -38,7 +39,7 @@ export default function LoginScreen() {
 
         <footer className="footerArea">
           <p>
-            © 2021 alura.com.br - <a href="/">Sobre o Orkut.br</a> - <a href="/">Centro de segurança</a> - <a href="/">Privacidade</a> - <a href="/">Termos</a> - <a href="/">Contato</a>
+            © 2021 hubork.com.br - <a href="/">Sobre o Hubork.br</a> - <a href="/">Centro de segurança</a> - <a href="/">Privacidade</a> - <a href="/">Termos</a> - <a href="/">Contato</a> - Desenvolvido por <a href="/">Flávio Inácio</a>
           </p>
         </footer>
       </div>

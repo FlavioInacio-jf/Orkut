@@ -126,7 +126,7 @@ const AlurakutLoginScreen = css`
     }
     .footerArea {
       grid-area: footerArea;
-      background-color: var(--backgroundQuarternary);
+      background-color: var(--backgroundPrimary);
       border-radius: var(--commonRadius);
       padding: 0.5rem;
       p {
