@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Head from 'next/head';
 
 import MainGrid from '../src/components/MainGrid'
 import Box from '../src/components/Box';
@@ -73,6 +74,10 @@ export default function Home() {
 
   return (
     <>
+      <Head >
+        <title>hubork | Seu Github de uma forma diferente</title>
+      </Head>
+      
       <AlurakutMenu githubUser={user.login}/>
       <MainGrid>
         <div  className="profileArea" style= {{ gridArea: 'profileArea'}}>

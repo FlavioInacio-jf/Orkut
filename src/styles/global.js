@@ -1,34 +1,5 @@
-import { createGlobalStyle, ThemeProvider, css } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
 
-export const theme = {
-  colors: {
-    primary: '#0070f3',
-  },
-}
-
-export const GlobalStyle = createGlobalStyle`
-  /* Reset CSS */
-  *, *:after, *:before {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body {
-    background-color: #D9E6F6;
-    font: 400 1rem "Rubik", sans-serif;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-  }
-  #__next {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
-`
 
 // ================================================================================================================
 // Login Page
@@ -170,10 +141,9 @@ const AlurakutLoginScreen = css`
   }
 `;
 
-// ================================================================================================================
 // Reset Styles
 // ================================================================================================================
-export const AlurakutStyles = css`
+const AlurakutStyles = css`
   *::-webkit-scrollbar {
     width: 0.5rem;
   }
@@ -233,3 +203,36 @@ export const AlurakutStyles = css`
     -webkit-text-size-adjust: 100%;
   }
 `;
+
+export const theme = {
+  colors: {
+    primary: '#0070f3',
+  },
+}
+
+export const GlobalStyle = createGlobalStyle`
+  /* Reset CSS */
+  *, *:after, *:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    background-image: linear-gradient(180deg, #308BC5, #00AAD3, #00C5C8,  #35DDAB, #9FEF88);
+    font: 400 1rem "Rubik", sans-serif;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  #__next {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  ${AlurakutStyles}
+`
+

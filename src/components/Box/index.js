@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Box = styled.div`
   background: #FFFFFF;
   border-radius: 0.5rem;
-
+  box-shadow: 1px 1px 1px 0 #EBEBEB;
   padding: 1rem;
 
   /* CSS Pré-Pronto */
