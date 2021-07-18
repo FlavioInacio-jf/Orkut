@@ -1,5 +1,6 @@
 import React from 'react';
 import LogoImg from '../src/assets/imagens/logo.svg';
+
 export default function LoginScreen() {
   return (
     <main style={{ display: 'flex', flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -17,7 +18,7 @@ export default function LoginScreen() {
             <p>
               Acesse agora mesmo com seu usuário do <strong>GitHub</strong>!
           </p>
-            <input placeholder="Usuário" {/*value={githubUser}*/} />
+            <input placeholder="Usuário"/>
             <button type="submit">
               Login
           </button>
