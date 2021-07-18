@@ -14,8 +14,8 @@ export default function ProfileRelationsBox(props) {
              index <= 5 && (
               <li  key={ itemAtual.id }>
                 <a href={`/communities/${itemAtual.id}`}>
-                  <img src={ itemAtual.imageUrl } alt={ itemAtual.title }/>
-                  <span>{itemAtual.title}</span>
+                  <img src={props.type ? itemAtual.avatarUrl : itemAtual.avatar_url } alt={ itemAtual.login }/>
+                  <span>{itemAtual.login}</span>
                 </a>
               </li>
             )

@@ -96,6 +96,7 @@ const AlurakutLoginScreen = css`
             min-height: 282px;
           }
         }
+
         div {
           width: 100%;
           display: flex;
@@ -130,6 +131,8 @@ const AlurakutLoginScreen = css`
           font-size: 0.875rem;
         }
         a {
+          display: block;
+          text-align: center;
           text-decoration: none;
           color: var(--colorPrimary);
         }
@@ -161,11 +164,17 @@ const AlurakutLoginScreen = css`
       }
     }
     .footerArea {
+      display: flex;
+      justify-content: center;
       grid-area: footerArea;
       background-color: var(--backgroundPrimary);
       border-radius: var(--commonRadius);
       padding: 0.5rem;
       p {
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: start;
+        gap: 0.125rem;
         font-size: 0.75rem;
         text-align: center;
         a {

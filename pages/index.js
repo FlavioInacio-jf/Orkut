@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { BsPencilSquare } from 'react-icons/bs';
 import Head from 'next/head';
 
+import nookies from 'nookies';
+import jwt from 'jsonwebtoken'
 
 import MainGrid from '../src/components/MainGrid'
 import Box from '../src/components/Box';
@@ -11,10 +13,11 @@ import ProfileRelationsBox from '../src/components/ProfileRelationsBox';
 import ProfileSidebar from '../src/components/ProfileSidebar';
 
 
-export default function Home() {
+export default function Home(props) {
 
   const [ comunidades, setComunidades ] = useState([]);
   const [user, setUser] = useState([]);
+  const [ userFriends, setUserFriends] = useState([]);
 
   function handleCriarComunidade(event) {
     event.preventDefault();
@@ -24,7 +27,6 @@ export default function Home() {
     const comunidade = {
       title: dadosForm.get('title'),
       imageUrl: dadosForm.get('image'),
-      creatorSlug: user.login,
     }
 
     fetch('/api/comunidades', {
@@ -43,11 +45,18 @@ export default function Home() {
   }
 
   useEffect(() =>{
-    //GET
-    fetch('https://api.github.com/users/FlavioInacio-jf')
+    //GET user
+    fetch(`https://api.github.com/users/${props.githubUser}`)
     .then( async (response) => {
       const dados = await response.json();
       setUser(dados);
+    })
+
+    //GET - followers
+    fetch(`https://api.github.com/users/${props.githubUser}/followers`)
+    .then( async (response) => {
+      const dados = await response.json();
+      setUserFriends(dados);
     })
 
     //API GraphQL
@@ -60,10 +69,9 @@ export default function Home() {
       },
       body: JSON.stringify({"query": `query {
         allComunidades {
-          title
+          login
           id
-          imageUrl
-          creatorSlug
+          avatarUrl
         }
       }` }),
     })
@@ -88,7 +96,7 @@ export default function Home() {
 
         <div className="welcomeArea" style={{ gridArea: 'welcomeArea'}}>
           <Box >
-            <h1 className="title">Bem-vindo(a), {user.name}</h1>
+            <h1 className="title">Bem-vindo(a), {props.githubUser}</h1>
             <p className="frase-dia"><span>Sorte de hoje: </span>O melhor profeta do futuro é o passado</p>
 
             <OrkutNostalgicIconSet user={user} />
@@ -122,9 +130,9 @@ export default function Home() {
 
         <div className="profileRelationsArea" style={{ gridArea: 'profileRelationsArea'}}>
 
-          {/*<ProfileRelationsBox items={pessoasFavoritas} title="Seguidores" />*/}
+          <ProfileRelationsBox  title="Pessoas Favoritas" items={userFriends} type={false} />
 
-          <ProfileRelationsBox title="Comunidades" items={comunidades} />
+          <ProfileRelationsBox title="Comunidades" items={comunidades} type={true} />
 
           {/*<ProfileRelationsBox items={pessoasFavoritas} title="Pessoas da comunidade" />*/}
         </div>
@@ -132,4 +140,32 @@ export default function Home() {
       </MainGrid>
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+
+  const cookies = nookies.get(context);
+  const token = cookies.USER_TOKEN;
+
+  const { isAuthenticated } = await fetch('https://alurakut.vercel.app/api/auth', {
+    headers: {
+      Authorization: token,
+    }
+  }).then( (response) => response.json())
+
+  if (!isAuthenticated) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      }
+    }
+  }
+  const { githubUser } = jwt.decode(token);
+
+  return {
+    props: {
+      githubUser,
+    },
+  }
 }

@@ -75,6 +75,10 @@ const Box = styled.div`
     border-radius: 0.3125rem;
     background-color: #6F92BB;
   }
+  .footer {
+    display: flex;
+
+  }
 `;
 
 export default Box;
