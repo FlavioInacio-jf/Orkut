@@ -2,8 +2,11 @@ import { useState} from 'react';
 import { BsSearch } from 'react-icons/bs';
 import styled from 'styled-components';
 
+import {  useRouter } from 'next/router'
 import Image from 'next/image'
 import Link  from '../Link';
+
+import nookies from 'nookies';
 
 import AlurakutMenuProfileSidebar  from '../AlurakutMenuProfileSidebar';
 import brandImg from '../../../public/logo.svg';
@@ -12,7 +15,15 @@ const BASE_URL = 'http://alurakut.vercel.app/';
 const v = '1';
 
 export default function AlurakutMenu({ githubUser }) {
+  const router = useRouter();
   const [isMenuOpen, setMenuState] = useState(false);
+
+  function exit (event) {
+    event.preventDefault();
+    nookies.destroy(null, 'USER_TOKEN')
+    router.push('/login', {})
+  }
+
   return (
     <AlurakutMenu.Wrapper isMenuOpen={isMenuOpen}>
       <div className="container">
@@ -27,7 +38,7 @@ export default function AlurakutMenu({ githubUser }) {
         </nav>
 
         <nav>
-          <a href={`/logout`}>
+          <a href={''} onClick={exit}>
             Sair
           </a>
           <div className="search">
@@ -43,8 +54,14 @@ export default function AlurakutMenu({ githubUser }) {
           {!isMenuOpen && <img src={`${BASE_URL}/icons/menu-closed.svg?v=${v}`} />}
         </button>
       </div>
+
+
       <AlurakutMenuProfileSidebar githubUser={githubUser} />
+
+
     </AlurakutMenu.Wrapper>
+
+
   )
 }
 

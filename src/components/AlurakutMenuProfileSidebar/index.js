@@ -15,7 +15,7 @@ export default function AlurakutMenuProfileSidebar({ githubUser }) {
 // ================================================================================================================
 // AlurakutProfileSidebarMenuDefault
 // ================================================================================================================
-export function AlurakutProfileSidebarMenuDefault() {
+export function AlurakutProfileSidebarMenuDefault(props) {
   return (
     <AlurakutProfileSidebarMenuDefault.Wrapper>
       <nav>

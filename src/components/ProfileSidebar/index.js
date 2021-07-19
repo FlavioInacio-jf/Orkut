@@ -16,7 +16,7 @@ export default function ProfileSidebar(props) {
         {props.description}
       </p>
       <hr />
-      <AlurakutProfileSidebarMenuDefault />
+      <AlurakutProfileSidebarMenuDefault githubUser={props.githubUser} />
     </Box>
   );
 }
