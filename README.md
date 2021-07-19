@@ -1,12 +1,11 @@
 
 <h1 align="center">
-	<a data-flickr-embed="true" href="https://www.flickr.com/photos/193310286@N05/51273033971/in/dateposted-public/" title="screenshot">
-	<img src="https://live.staticflickr.com/65535/51273033971_83bde84d2d_z.jpg" width="640" height="324" alt="screenshot"></a>
+	<a data-flickr-embed="true" href="https://www.flickr.com/photos/193310286@N05/51321284144/in/dateposted-public/" title="print"><img 		src="https://live.staticflickr.com/65535/51321284144_21d32d892b_z.jpg" width="640" height="336" alt="print"></a>
 	
 	📱 Hubork
 </h1>
 <h3 align="center">
-    🌱 Entre em uma sala ja existente ou crie uma nova sala utlizando a autênticação com o Google. Faça perguntas, curta, ou até mesmo se você for o criador, exclua ou destaque  	as perguntas. Este é o objetivo do Letmeask!! Site desenvolvido utilizando o React.js.💚
+    🌱 O que acha de voltar no tempo e tentar relembrar como era o Orkut? Esse é o intuito dessa aplicação. Um rede social repaginada e com um novo proposito. Aproveitem!!!💚
 </h3>
 
 <p align="center">
@@ -34,7 +33,7 @@
 
 ## 💻 Sobre o projeto
 
-O projeto Letmeask foi desenvolvido durante a NLW Together da Rocketseat. A aplicação e feita utilizando o ReactJS e o conceito de SPA(Single page aplication). O Firebase foi utilizado para fazer a autenticação com o Google e para utlizar o Realtime Database. O context API foi utlizado para compartilhar informações entres os componentes.
+O projeto Hubork foi desenvolvido durante a imersão react da Alura. A aplicação é feita utilizando React e NextJS. Durante a imersão, varios topicos foram abordados, como, fetch, request/response, styled components, autenticação, etc. O Dado CMS foi utilizado como Back-End. Com isso, foi possivel armazenar os dados criado pelo usuário. 
 
 ---
 
@@ -66,7 +65,7 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 $ git clone https://github.com/FlavioInacio-jf/letmeask
 
 # Acesse a pasta do projeto no seu terminal/cmd
-$ cd letmeask
+$ cd orkut
 
 # Instale as depêndencias
 $ yarn
@@ -87,6 +86,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - **[JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)**
 - **[Css](https://developer.mozilla.org/pt-BR/docs/Web/CSS)**
 - **[Styled component](https://styled-components.com/)**
+- **[Nookies](https://www.npmjs.com/package/nookies
+- **[Create React App](https://create-react-app.dev/)
 
 #### **Back-end** 
 - **[Dato CMS](https://www.datocms.com/)**
