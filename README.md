@@ -1,84 +1,122 @@
-# Example app with styled-components
 
-This example features how you use a different styling solution than [styled-jsx](https://github.com/vercel/styled-jsx) that also supports universal styles. That means we can serve the required styles for the first render within the HTML and then load the rest in the client. In this case we are using [styled-components](https://github.com/styled-components/styled-components).
+<h1 align="center">
+	<a data-flickr-embed="true" href="https://www.flickr.com/photos/193310286@N05/51273033971/in/dateposted-public/" title="screenshot">
+	<img src="https://live.staticflickr.com/65535/51273033971_83bde84d2d_z.jpg" width="640" height="324" alt="screenshot"></a>
+	
+	📱 Hubork
+</h1>
+<h3 align="center">
+    🌱 Entre em uma sala ja existente ou crie uma nova sala utlizando a autênticação com o Google. Faça perguntas, curta, ou até mesmo se você for o criador, exclua ou destaque  	as perguntas. Este é o objetivo do Letmeask!! Site desenvolvido utilizando o React.js.💚
+</h3>
 
-For this purpose we are extending the `<Document />` and injecting the server side rendered styles into the `<head>`, and also adding the `babel-plugin-styled-components` (which is required for server side rendering). Additionally we set up a global [theme](https://www.styled-components.com/docs/advanced#theming) for styled-components using NextJS custom [`<App>`](https://nextjs.org/docs/advanced-features/custom-app) component.
+<p align="center">
+	
+  <img src="https://img.shields.io/static/v1?label=JS&message=99.9%&color=835afd&style=<STYLE>&logo=<LOGO>">
+  <img src="https://img.shields.io/static/v1?label=Scss&message=0.1%&color=835afd&style=<STYLE>&logo=<LOGO>">
+    
+</p>
 
-## Preview
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-styled-components)
+<h4 align="center"> 
+	🚧  Hubork 👨🏾‍💻 Finalizado... 🚀 🚧
+</h4>
 
-## Deploy your own
+<p align="center">
+ <a href="#-sobre-o-projeto">Sobre</a> •
+ <a href="#-funcionalidades">Funcionalidades</a> • 
+ <a href="#-como-executar-o-projeto">Como executar</a> • 
+ <a href="#-tecnologias">Tecnologias</a> • 
+ <a href="#-autor">Autor</a> • 
+ <a href="#user-content--licença">Licença</a>
+</p>
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-styled-components&project-name=with-styled-components&repository-name=with-styled-components)
+## 💻 Sobre o projeto
 
-## How to use
+O projeto Letmeask foi desenvolvido durante a NLW Together da Rocketseat. A aplicação e feita utilizando o ReactJS e o conceito de SPA(Single page aplication). O Firebase foi utilizado para fazer a autenticação com o Google e para utlizar o Realtime Database. O context API foi utlizado para compartilhar informações entres os componentes.
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+---
 
+## ⚙️ Funcionalidades
+
+- Se conecte com perfil do Github
+- Tenha acesso a varias informações do seu Github
+- Adicionar comunidades
+- Excluir e destacar perguntas(Administrador)
+- Encerrar sala(Administrador)
+---
+
+
+
+## 🚀 Como executar o projeto
+
+
+### Pré-requisitos
+
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com). 
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
+
+
+#### 🧭 Rodando a aplicação web 
 ```bash
-npx create-next-app --example with-styled-components with-styled-components-app
-# or
-yarn create next-app --example with-styled-components with-styled-components-app
+
+# Clone este repositório
+$ git clone https://github.com/FlavioInacio-jf/letmeask
+
+# Acesse a pasta do projeto no seu terminal/cmd
+$ cd letmeask
+
+# Instale as depêndencias
+$ yarn
+
+# Iniciar o projeto(O app estará deponivel no  http://localhost:3000)
+$ yarn start
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+---
 
-### Try it on CodeSandbox
+## 🛠 Tecnologias
 
-[Open this example on CodeSandbox](https://codesandbox.io/s/github/vercel/next.js/tree/canary/examples/with-styled-components)
+As seguintes ferramentas foram usadas na construção do projeto:
 
-### Notes
+#### **Front-end** 
+- **[React.js](https://pt-br.reactjs.org/)**
+- **[NextJs](https://nextjs.org/)**
+- **[JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)**
+- **[Css](https://developer.mozilla.org/pt-BR/docs/Web/CSS)**
+- **[Styled component](https://styled-components.com/)**
 
-When wrapping a [Link](https://nextjs.org/docs/api-reference/next/link) from `next/link` within a styled-component, the [as](https://styled-components.com/docs/api#as-polymorphic-prop) prop provided by `styled` will collide with the Link's `as` prop and cause styled-components to throw an `Invalid tag` error. To avoid this, you can either use the recommended [forwardedAs](https://styled-components.com/docs/api#forwardedas-prop) prop from styled-components or use a different named prop to pass to a `styled` Link.
+#### **Back-end** 
+- **[Dato CMS](https://www.datocms.com/)**
 
-<details>
-<summary>Click to expand workaround example</summary>
-<br />
 
-**components/StyledLink.js**
+#### [](https://github.com/FlavioInacio-jf/ControlTT#utilit%C3%A1rios)**Utilitários**
 
-```javascript
-import Link from 'next/link'
-import styled from 'styled-components'
+-   Browser: **[Google Chrome](https://www.google.com/intl/pt-BR/chrome/)**
+-   Editor:  **[Visual Studio Code](https://code.visualstudio.com/)** 
+-   Ícones:  **[Bootstrap Icons](https://icons.getbootstrap.com/)**
+-   Fontes:  **[Rubik](https://fonts.google.com/specimen/Rubik)**
 
-const StyledLink = ({ as, children, className, href }) => (
-  <Link href={href} as={as} passHref>
-    <a className={className}>{children}</a>
-  </Link>
-)
 
-export default styled(StyledLink)`
-  color: #0075e0;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
+---
 
-  &:hover {
-    color: #40a9ff;
-  }
 
-  &:focus {
-    color: #40a9ff;
-    outline: none;
-    border: 0;
-  }
-`
-```
+## 🦸 Autor
+ <img style="border-radius: 50%;" src="https://i.ibb.co/B26fQkK/capture-Fl-vio-In-cio.jpg" width="100px;" alt=""/>
+ <br />
+ <sub><b>Flávio Inácio</b></sub>
+ <br />
 
-**pages/index.js**
+[![Linkedin Badge](https://img.shields.io/badge/-Flávio-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/fl%C3%A1vio-in%C3%A1cio/)](https://www.linkedin.com/in/fl%C3%A1vio-in%C3%A1cio/) 
+[![Gmail Badge](https://img.shields.io/badge/-jflavioinacio22@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:jflavioinacio@gmail.com)](mailto:jflavioinacio22@gmail.com)
 
-```javascript
-import StyledLink from '../components/StyledLink'
+---
 
-export default () => (
-  <StyledLink href="/post/[pid]" forwardedAs="/post/abc">
-    First post
-  </StyledLink>
-)
-```
+## 📝 Licença
 
-</details>
+Este projeto esta sobe a licença [MIT](./LICENSE).
+
+Feit por Flávio Inácio 👋🏽 [Entre em contato!](https://www.linkedin.com/in/fl%C3%A1vio-in%C3%A1cio/)
+
