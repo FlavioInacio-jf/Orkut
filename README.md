@@ -62,7 +62,7 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 ```bash
 
 # Clone este repositório
-$ git clone https://github.com/FlavioInacio-jf/letmeask
+$ git clone https://github.com/FlavioInacio-jf/orkut
 
 # Acesse a pasta do projeto no seu terminal/cmd
 $ cd orkut
